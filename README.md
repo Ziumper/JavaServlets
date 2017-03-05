@@ -3,7 +3,7 @@
 Serwlet - Jest to program napisany w języku Java należący do pakietu javax. Jego zadaniem jest przyjmowanie żądań od klientów (takich jak przeglądarki internetowe lub urządzenia mobilne) i odsyłanie im odpowiedzi. Bazuje on na protokole komunikacyjnym HTTP.  Serwlety pozwalają na zbudowanie aplikacji webowych, opartych na komponentach. 
 
 Cechy serwletów:
-- Dynamicznie rozszerzają funkcje serwera WWW.
+- Dynamicznie rozszerzają funkcje serwera.
 - Służą do tworzenia dynamicznie generowanej treści.
 - Mają dostęp do całego API Javy w tym JDBC
 - Pośredniczą pomiędzy aplikacjami np. klientem HTTP i serwerem.
