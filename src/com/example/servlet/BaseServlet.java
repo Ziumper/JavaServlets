@@ -15,10 +15,13 @@ public class BaseServlet extends GenericServlet
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
         servletResponse.setContentType("text/html");
-        String serverName = servletRequest.getServerName();
+
         PrintWriter pw =  servletResponse.getWriter();
         pw.println("<h1>Hello from Base Servlet Class</h1>");
-        pw.println("<p>Server name: "+ serverName + "</p>");
+        pw.println("SERVER_NAME="+servletRequest.getServerName()+"<BR>");
+        pw.println("REMOTE_HOST="+servletRequest.getRemoteHost()+"<BR>");
+        pw.println("REMOTE_ADDR="+servletRequest.getRemoteAddr());
+
 
         Enumeration e = servletRequest.getParameterNames();
 

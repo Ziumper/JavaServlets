@@ -30,5 +30,13 @@
     Select file to upload: <input type="file" name="file" size="60" /><br />
     <br /> <input type="submit" value="Upload" />
   </form>
+<ul>
+  <li>
+    <a href="/login">Login Servlet</a>
+  </li>
+  <li><a href="/sessionServlet">Session Servlet</a></li>
+</ul>
+
+
   </body>
 </html>

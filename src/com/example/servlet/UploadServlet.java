@@ -16,8 +16,7 @@ import javax.servlet.http.Part;
 @MultipartConfig(
         fileSizeThreshold=1024*1024*2, // 2MB
         maxFileSize=1024*1024*10,      // 10MB
-        maxRequestSize=1024*1024*50,
-        location = "D:/temp"
+        maxRequestSize=1024*1024*50
 )
 public class UploadServlet extends HttpServlet {
 
@@ -25,6 +24,7 @@ public class UploadServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
     {
+        response.setContentType("text/html");
         String yourPath = "D:/";
         String savePath = yourPath + File.separator + SAVE_DIR;
         File fileSaveDir = new File(savePath);
