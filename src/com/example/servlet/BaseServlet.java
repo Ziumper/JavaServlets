@@ -9,7 +9,9 @@ import java.io.PrintWriter;
 import java.util.Enumeration;
 
 
-public class BaseServlet extends GenericServlet {
+public class BaseServlet extends GenericServlet
+{
+
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
         servletResponse.setContentType("text/html");

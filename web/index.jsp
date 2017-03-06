@@ -14,16 +14,21 @@
   <form name="Form1"
         method="post"
         action="http://localhost:8080/baseServlet">
-    <table>
-      <tr>
-        <td><B>Parametr1</td>
-        <td><input type=textbox name="parametr1" size="25" value=""></td>
-      </tr>
-      <tr>
-        <td><B>Parametr2</td>
-        <td><input type=textbox name="parametr2" size="25" value=""></td>
-      </tr>
-    </table>
+    <div>
+      <label for="parametr1">Parametr 1</label>
+      <input id="parametr1" type=text name="parametr1" size="25" value="">
+    </div>
+    <div>
+     <label for="parametr2">Parametr 2</label>
+      <input id="parametr2" type=text name="parametr2" size="25" value="">
+    </div>
     <input type=submit value="Wyślij">
+  </form>
+  <h1>File Upload</h1>
+  <form method="post" action="fileUpload"
+        enctype="multipart/form-data">
+    Select file to upload: <input type="file" name="file" size="60" /><br />
+    <br /> <input type="submit" value="Upload" />
+  </form>
   </body>
 </html>
