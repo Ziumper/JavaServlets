@@ -1,6 +1,6 @@
 package com.example.servlet;
 
-import javax.servlet.ServletConfig;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,18 +16,19 @@ import java.io.PrintWriter;
 public class LoginServlet extends HttpServlet {
     private static final String CONTENT_TYPE = "text/html; charset=windows-1250";
     private int licznik = 0;
-    
+
+
+
     /**Process the HTTP doGet request.
      */
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nazwa = "";
         String haslo = "";
-        try {
-            nazwa = request.getParameter("nazwa");
-            haslo = request.getParameter("haslo");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        nazwa = request.getParameter("nazwa");
+        haslo = request.getParameter("haslo");
+
         response.setContentType(CONTENT_TYPE);
         PrintWriter out = response.getWriter();
         out.println("<html>");
@@ -52,15 +53,14 @@ public class LoginServlet extends HttpServlet {
 
     /**Process the HTTP doPost request.
      */
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nazwa = "";
         String haslo = "";
-        try {
-            nazwa = request.getParameter("nazwa");
-            haslo = request.getParameter("haslo");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        nazwa = request.getParameter("nazwa");
+        haslo = request.getParameter("haslo");
+
         response.setContentType(CONTENT_TYPE);
         PrintWriter out = response.getWriter();
         out.println("<html>");
@@ -77,5 +77,17 @@ public class LoginServlet extends HttpServlet {
         }
         out.println("</body></html>");
         out.close();
+    }
+
+    @Override
+    public void init() throws ServletException {
+        //inicjalizacja serwletu
+        super.init();
+    }
+
+    @Override
+    public void destroy() {
+        //kasowanie instancji serwletu
+        super.destroy();
     }
 }

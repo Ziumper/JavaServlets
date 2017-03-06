@@ -20,6 +20,7 @@ public class SessionServlet extends HttpServlet {
 
     /**Process the HTTP doGet request.
      */
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nazwa = "";
         String haslo = "";
@@ -62,16 +63,13 @@ public class SessionServlet extends HttpServlet {
 
     /**Process the HTTP doPost request.
      */
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nazwa = "";
         String haslo = "";
-        try {
-            nazwa = request.getParameter("nazwa");
-            haslo = request.getParameter("haslo");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
+        nazwa = request.getParameter("nazwa");
+        haslo = request.getParameter("haslo");
 
         //SESJA
         Integer licznikSesji = 0;
