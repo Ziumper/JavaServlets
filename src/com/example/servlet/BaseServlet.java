@@ -20,7 +20,7 @@ public class BaseServlet extends GenericServlet
         pw.println("<h1>Hello from Base Servlet Class</h1>");
         pw.println("SERVER_NAME="+servletRequest.getServerName()+"<BR>");
         pw.println("REMOTE_HOST="+servletRequest.getRemoteHost()+"<BR>");
-        pw.println("REMOTE_ADDR="+servletRequest.getRemoteAddr());
+        pw.println("REMOTE_ADDR="+servletRequest.getRemoteAddr()+"<BR>");
 
 
         Enumeration e = servletRequest.getParameterNames();
