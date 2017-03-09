@@ -19,44 +19,45 @@ import javax.servlet.http.Part;
         maxRequestSize=1024*1024*50
 )
 public class UploadServlet extends HttpServlet {
-
-    private static final String SAVE_DIR = "uploadFiles";
+    public static final String PATH = "C:\\uploadFiles";
 
     protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
     {
-        response.setContentType("text/html");
-        String yourPath = "D:/";
-        String savePath = yourPath + File.separator + SAVE_DIR;
+        response.setContentType("text/html;charset=UTF-8");
+        //String appPath = request.getServletContext().getRealPath("");
+
+        String savePath = PATH;
         File fileSaveDir = new File(savePath);
 
-
-        if (!fileSaveDir.exists()) {
+        if (!fileSaveDir.exists())
+        {
             fileSaveDir.mkdir();
         }
 
-        for (Part part : request.getParts()) {
-            String fileName = extractFileName(part);
+        for (Part part : request.getParts())
+        {
+            String fileName = part.getSubmittedFileName();
             fileName = new File(fileName).getName();
-            part.write(savePath + File.separator + fileName);
+            part.write(savePath + "\\" + fileName);
         }
 
         PrintWriter pw = response.getWriter();
-        pw.println("Witaj! Pomyślnie dodano plik!");
+        pw.println("Witaj! Pomyślnie dodano plik! Zapisano w: " + savePath);
 
-    }
 
-    /**
-     * Extracts file name from HTTP header content-disposition
-     */
-    private String extractFileName(Part part)
-    {
-        String contentDisp = part.getHeader("content-disposition");
-        String[] items = contentDisp.split(";");
-        for (String s : items) {
-            if (s.trim().startsWith("filename")) {
-                return s.substring(s.indexOf("=") + 2, s.length()-1);
+        File folder = new File(PATH);
+        File[] listOfFiles = folder.listFiles();
+        pw.println("<ul>");
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                pw.print("<li>");
+                pw.println("<a href=\"/download?file=" + listOfFiles[i].getName() + "\">Pobierz " + listOfFiles[i].getName()+"</a>");
+                pw.print("</li>");
             }
         }
-        return "";
+        pw.println("</ul>");
+
+        pw.close();
     }
+
 }
