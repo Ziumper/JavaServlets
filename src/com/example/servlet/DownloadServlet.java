@@ -23,6 +23,7 @@ public class DownloadServlet extends HttpServlet {
         doSomeInterestingStuff(pathName,response);
 
     }
+
     private void doSomeInterestingStuff(String pathName, HttpServletResponse response) throws IOException {
         File downloadFile = new File(pathName);
         FileInputStream inStream = new FileInputStream(downloadFile);
